@@ -1,6 +1,6 @@
-import { ViewMode } from "./public-types";
+import type { ViewMode } from "./public-types";
 
 export interface DateSetup {
-  dates: Date[];
-  viewMode: ViewMode;
+	dates: Date[];
+	viewMode: ViewMode;
 }

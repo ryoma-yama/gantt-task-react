@@ -17,7 +17,9 @@
 }
 
 .ganttTable_HeaderItem {
+  box-sizing: border-box;
   display: table-cell;
   vertical-align: -webkit-baseline-middle;
   vertical-align: middle;
+  padding-left: 1em;
 }
