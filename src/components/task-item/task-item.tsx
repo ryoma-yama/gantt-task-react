@@ -58,7 +58,7 @@ export const TaskItem: React.FC<TaskItemProps> = props => {
 
   useEffect(() => {
     if (textRef.current) {
-      setIsTextInside(textRef.current.getBBox().width < task.x2 - task.x1);
+      setIsTextInside(textRef.current.getBoundingClientRect().width < task.x2 - task.x1);
     }
   }, [textRef, task]);
 

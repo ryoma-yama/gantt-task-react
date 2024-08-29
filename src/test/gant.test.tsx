@@ -1,10 +1,10 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import { Gantt } from "../index";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Gantt } from '../index';
 
-describe("gantt", () => {
-  it("renders without crashing", () => {
-    const div = document.createElement("div");
+describe('gantt', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
     const root = createRoot(div);
     root.render(
       <Gantt
