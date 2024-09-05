@@ -1,7 +1,7 @@
 import type { TaskListHeaderProps } from "../components/task-list/task-list-header";
 import type { TaskListTableProps } from "../components/task-list/task-list-table";
 
-export enum ViewMode {
+export enum ViewModeEnum {
 	Hour = "Hour",
 	QuarterDay = "Quarter Day",
 	HalfDay = "Half Day",
@@ -12,6 +12,17 @@ export enum ViewMode {
 	QuarterYear = "QuarterYear",
 	Year = "Year",
 }
+
+export type ViewMode =
+	| "Hour"
+	| "Quarter Day"
+	| "Half Day"
+	| "Day"
+	| "Week" // ISO-8601 week
+	| "Month"
+	| "Quarter Year"
+	| "Year";
+
 export type TaskType = "task" | "milestone" | "project";
 export interface Task {
 	id: string;
@@ -78,7 +89,7 @@ export interface EventOption {
 }
 
 export interface DisplayOption {
-	viewMode?: ViewMode;
+	viewMode?: ViewModeEnum;
 	viewDate?: Date;
 	preStepsCount?: number;
 	/**

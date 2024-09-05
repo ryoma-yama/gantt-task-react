@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Gantt, type Task, ViewMode } from "../../src";
 import { ViewSwitcher } from "./components/view-switcher";
 import { getStartEndDateForProject, initTasks } from "./helper";
@@ -6,9 +6,9 @@ import "./index.css";
 
 // Init
 const App = () => {
-	const [view, setView] = React.useState<ViewMode>(ViewMode.Day);
-	const [tasks, setTasks] = React.useState<Task[]>(initTasks());
-	const [isChecked, setIsChecked] = React.useState(true);
+	const [view, setView] = useState<ViewMode>(ViewMode.Day);
+	const [tasks, setTasks] = useState<Task[]>(initTasks());
+	const [isChecked, setIsChecked] = useState(true);
 	let columnWidth = 65;
 	if (view === ViewMode.Year) {
 		columnWidth = 350;

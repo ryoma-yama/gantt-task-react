@@ -7,50 +7,24 @@ import {
 	getWeekNumberISO8601,
 } from "../../helpers/date-helper";
 import type { DateSetup } from "../../types/date-setup";
-import { ViewMode } from "../../types/public-types";
+import { ViewModeEnum } from "../../types/public-types";
 import styles from "./calendar.module.css";
 import { TopPartOfCalendar } from "./top-part-of-calendar";
-
-const createDefaultDates = () => {
-	const today = new Date();
-	const daysBefore = 7;
-	const daysAfter = 7;
-
-	const defaultDates: Date[] = [];
-
-	// pre-week
-	for (let i = daysBefore; i > 0; i--) {
-		const date = new Date();
-		date.setDate(today.getDate() - i);
-		defaultDates.push(date);
-	}
-
-	// today
-	defaultDates.push(today);
-
-	// post-week
-	for (let i = 1; i <= daysAfter; i++) {
-		const date = new Date();
-		date.setDate(today.getDate() + i);
-		defaultDates.push(date);
-	}
-
-	return defaultDates;
-};
 
 export type CalendarProps = {
 	dateSetup: DateSetup;
 	locale: string;
-	viewMode: ViewMode;
+	viewMode: ViewModeEnum;
 	rtl: boolean;
 	headerHeight: number;
 	columnWidth: number;
 	fontFamily: string;
 	fontSize: string;
+	showDayOfWeek?: boolean;
 };
 
 export const Calendar: React.FC<CalendarProps> = ({
-	dateSetup = { dates: createDefaultDates(), viewMode: ViewMode.Day },
+	dateSetup,
 	locale,
 	viewMode,
 	rtl,
@@ -58,6 +32,7 @@ export const Calendar: React.FC<CalendarProps> = ({
 	columnWidth,
 	fontFamily,
 	fontSize,
+	showDayOfWeek = false,
 }) => {
 	const calculateXText = (
 		rtl: boolean,
@@ -242,12 +217,12 @@ export const Calendar: React.FC<CalendarProps> = ({
 		const bottomValues: ReactNode[] = [];
 		const topDefaultHeight = headerHeight * 0.5;
 		const dates = dateSetup.dates;
-		console.warn("dates", dates);
 		for (let i = 0; i < dates.length; i++) {
 			const date = dates[i];
-			const bottomValue = `${getLocalDayOfWeek(date, locale, "short")}, ${date
-				.getDate()
-				.toString()}`;
+			const dayOfWeek = getLocalDayOfWeek(date, locale, "short");
+			const bottomValue = showDayOfWeek
+				? `${dayOfWeek}, ${date.getDate()}`
+				: `${date.getDate()}`;
 
 			bottomValues.push(
 				<text
@@ -289,7 +264,7 @@ export const Calendar: React.FC<CalendarProps> = ({
 	const getCalendarValuesForPartOfDay = () => {
 		const topValues: ReactNode[] = [];
 		const bottomValues: ReactNode[] = [];
-		const ticks = viewMode === ViewMode.HalfDay ? 2 : 4;
+		const ticks = viewMode === ViewModeEnum.HalfDay ? 2 : 4;
 		const topDefaultHeight = headerHeight * 0.5;
 		const dates = dateSetup.dates;
 		for (let i = 0; i < dates.length; i++) {
@@ -382,26 +357,26 @@ export const Calendar: React.FC<CalendarProps> = ({
 	let topValues: ReactNode[] = [];
 	let bottomValues: ReactNode[] = [];
 	switch (dateSetup.viewMode) {
-		case ViewMode.Year:
+		case ViewModeEnum.Year:
 			[topValues, bottomValues] = getCalendarValuesForYear();
 			break;
-		case ViewMode.QuarterYear:
+		case ViewModeEnum.QuarterYear:
 			[topValues, bottomValues] = getCalendarValuesForQuarterYear();
 			break;
-		case ViewMode.Month:
+		case ViewModeEnum.Month:
 			[topValues, bottomValues] = getCalendarValuesForMonth();
 			break;
-		case ViewMode.Week:
+		case ViewModeEnum.Week:
 			[topValues, bottomValues] = getCalendarValuesForWeek();
 			break;
-		case ViewMode.Day:
+		case ViewModeEnum.Day:
 			[topValues, bottomValues] = getCalendarValuesForDay();
 			break;
-		case ViewMode.QuarterDay:
-		case ViewMode.HalfDay:
+		case ViewModeEnum.QuarterDay:
+		case ViewModeEnum.HalfDay:
 			[topValues, bottomValues] = getCalendarValuesForPartOfDay();
 			break;
-		case ViewMode.Hour:
+		case ViewModeEnum.Hour:
 			[topValues, bottomValues] = getCalendarValuesForHour();
 	}
 	return (

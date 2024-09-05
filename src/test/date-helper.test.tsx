@@ -3,12 +3,12 @@ import {
 	getWeekNumberISO8601,
 	seedDates,
 } from "../helpers/date-helper";
-import { ViewMode } from "../types/public-types";
+import { ViewModeEnum } from "../types/public-types";
 
 describe("seed date", () => {
 	test("daily", () => {
 		expect(
-			seedDates(new Date(2020, 5, 28), new Date(2020, 6, 2), ViewMode.Day),
+			seedDates(new Date(2020, 5, 28), new Date(2020, 6, 2), ViewModeEnum.Day),
 		).toEqual([
 			new Date(2020, 5, 28),
 			new Date(2020, 5, 29),
@@ -20,7 +20,11 @@ describe("seed date", () => {
 
 	test("weekly", () => {
 		expect(
-			seedDates(new Date(2020, 5, 28), new Date(2020, 6, 19), ViewMode.Week),
+			seedDates(
+				new Date(2020, 5, 28),
+				new Date(2020, 6, 19),
+				ViewModeEnum.Week,
+			),
 		).toEqual([
 			new Date(2020, 5, 28),
 			new Date(2020, 6, 5),
@@ -31,7 +35,11 @@ describe("seed date", () => {
 
 	test("monthly", () => {
 		expect(
-			seedDates(new Date(2020, 5, 28), new Date(2020, 6, 19), ViewMode.Month),
+			seedDates(
+				new Date(2020, 5, 28),
+				new Date(2020, 6, 19),
+				ViewModeEnum.Month,
+			),
 		).toEqual([new Date(2020, 5, 28), new Date(2020, 6, 28)]);
 	});
 
@@ -40,7 +48,7 @@ describe("seed date", () => {
 			seedDates(
 				new Date(2020, 5, 28),
 				new Date(2020, 5, 29),
-				ViewMode.QuarterDay,
+				ViewModeEnum.QuarterDay,
 			),
 		).toEqual([
 			new Date(2020, 5, 28, 0, 0),

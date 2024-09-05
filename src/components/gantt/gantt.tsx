@@ -6,7 +6,11 @@ import { removeHiddenTasks, sortTasks } from "../../helpers/other-helper";
 import type { BarTask } from "../../types/bar-task";
 import type { DateSetup } from "../../types/date-setup";
 import type { GanttEvent } from "../../types/gantt-task-actions";
-import { type GanttProps, type Task, ViewMode } from "../../types/public-types";
+import {
+	type GanttProps,
+	type Task,
+	ViewModeEnum,
+} from "../../types/public-types";
 import type { CalendarProps } from "../calendar/calendar";
 import type { GridProps } from "../grid/grid";
 import { HorizontalScroll } from "../other/horizontal-scroll";
@@ -26,7 +30,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 	listCellWidth = "155px",
 	rowHeight = 50,
 	ganttHeight = 0,
-	viewMode = ViewMode.Day,
+	viewMode = ViewModeEnum.Day,
 	preStepsCount = 1,
 	locale = "en-GB",
 	barFill = 60,
@@ -61,11 +65,38 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 	onSelect,
 	onExpanderClick,
 }) => {
+	const createDefaultDates = () => {
+		const today = new Date();
+		const daysBefore = 7;
+		const daysAfter = 7;
+
+		const defaultDates: Date[] = [];
+
+		// pre-week
+		for (let i = daysBefore; i > 0; i--) {
+			const date = new Date();
+			date.setDate(today.getDate() - i);
+			defaultDates.push(date);
+		}
+
+		// today
+		defaultDates.push(today);
+
+		// post-week
+		for (let i = 1; i <= daysAfter; i++) {
+			const date = new Date();
+			date.setDate(today.getDate() + i);
+			defaultDates.push(date);
+		}
+
+		return defaultDates;
+	};
+
 	const wrapperRef = useRef<HTMLDivElement>(null);
 	const taskListRef = useRef<HTMLDivElement>(null);
 	const [dateSetup, setDateSetup] = useState<DateSetup>(() => {
 		if (!tasks || tasks.length === 0) {
-			return { viewMode: ViewMode.Day, dates: [] };
+			return { viewMode: ViewModeEnum.Day, dates: createDefaultDates() };
 		}
 		const [startDate, endDate] = ganttDateRange(tasks, viewMode, preStepsCount);
 		return { viewMode, dates: seedDates(startDate, endDate, viewMode) };

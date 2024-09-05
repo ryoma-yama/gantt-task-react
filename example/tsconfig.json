@@ -23,7 +23,8 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"noFallthroughCasesInSwitch": true
+		"noFallthroughCasesInSwitch": true,
+		"types": ["vitest/globals"]
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", "build"]

@@ -8,20 +8,14 @@
 		"sourceMap": true,
 		"declaration": true,
 		"esModuleInterop": true,
-		"noImplicitReturns": true,
-		"noImplicitThis": true,
-		"strictNullChecks": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
 		"allowSyntheticDefaultImports": true,
-		"target": "es5",
-		"allowJs": true,
+		"target": "ESNext",
 		"skipLibCheck": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"noEmit": true
+		"types": ["vite/client", "vitest/globals"]
 	},
 	"include": ["src"],
 	"exclude": ["node_modules", "dist", "example"]

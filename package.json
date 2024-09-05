@@ -1,69 +1,59 @@
 {
-  "name": "gantt-task-react",
-  "version": "0.3.9",
-  "type": "module",
-  "description": "Interactive Gantt Chart for React with TypeScript.",
-  "author": "MaTeMaTuK <maksym.vikarii@gmail.com>",
-  "homepage": "https://github.com/MaTeMaTuK/gantt-task-react",
-  "license": "MIT",
-  "repository": "MaTeMaTuK/gantt-task-react",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "source": "src/index.tsx",
-  "engines": {
-    "node": ">=10"
-  },
-  "keywords": [
-    "react",
-    "gantt",
-    "typescript",
-    "chart",
-    "svg",
-    "gantt-chart",
-    "gantt chart",
-    "react-gantt",
-    "task"
-  ],
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "lint": "biome check --apply",
-    "prepare": "pnpm run build",
-    "predeploy": "cd example && pnpm build",
-    "deploy": "gh-pages -d example/dist"
-  },
-  "peerDependencies": {
-    "react": "^18.0.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "@testing-library/react": "^16.0.0",
-    "@testing-library/user-event": "^14.5.2",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^22.5.1",
-    "@types/react": "^18.3.4",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react-swc": "^3.7.0",
-    "cross-env": "^7.0.3",
-    "gh-pages": "^6.1.1",
-    "happy-dom": "^15.3.1",
-    "jsdom": "^25.0.0",
-    "microbundle-crl": "^0.13.11",
-    "mini-css-extract-plugin": "^2.9.1",
-    "npm-run-all": "^4.1.5",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-normalize": "^10.0.1",
-    "postcss-preset-env": "^10.0.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.2",
-    "vitest": "^2.0.5"
-  },
-  "files": [
-    "dist"
-  ],
-  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
+	"name": "gantt-task-react",
+	"version": "0.3.9",
+	"type": "module",
+	"description": "Interactive Gantt Chart for React with TypeScript.",
+	"author": "MaTeMaTuK <maksym.vikarii@gmail.com>",
+	"homepage": "https://github.com/MaTeMaTuK/gantt-task-react",
+	"license": "MIT",
+	"repository": "MaTeMaTuK/gantt-task-react",
+	"main": "dist/index.js",
+	"module": "dist/index.modern.js",
+	"source": "src/index.tsx",
+	"engines": {
+		"node": ">=20.17.0"
+	},
+	"keywords": [
+		"react",
+		"gantt",
+		"typescript",
+		"chart",
+		"svg",
+		"gantt-chart",
+		"gantt chart",
+		"react-gantt",
+		"task"
+	],
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"lint": "biome check --apply",
+		"prepare": "pnpm run build",
+		"predeploy": "cd example && pnpm build",
+		"deploy": "gh-pages -d example/dist"
+	},
+	"peerDependencies": {
+		"react": "^18.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@types/node": "^22.5.1",
+		"@types/react": "^18.3.4",
+		"@types/react-dom": "^18.3.0",
+		"@vitejs/plugin-react-swc": "^3.7.0",
+		"gh-pages": "^6.1.1",
+		"happy-dom": "^15.3.1",
+		"jsdom": "^25.0.0",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"typescript": "^5.5.4",
+		"vite": "^5.4.2",
+		"vitest": "^2.0.5"
+	},
+	"files": [
+		"dist"
+	],
+	"packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }

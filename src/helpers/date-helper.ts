@@ -1,4 +1,4 @@
-import { type Task, ViewMode } from "../types/public-types";
+import { type Task, ViewModeEnum } from "../types/public-types";
 import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 import DateTimeFormat = Intl.DateTimeFormat;
 
@@ -11,7 +11,7 @@ type DateHelperScales =
 	| "second"
 	| "millisecond";
 
-const intlDTCache = {};
+const intlDTCache: { [key: string]: DateTimeFormat } = {};
 export const getCachedDateTimeFormat = (
 	locString: string | string[],
 	opts: DateTimeFormatOptions = {},
@@ -71,7 +71,7 @@ export const startOfDate = (date: Date, scale: DateHelperScales) => {
 
 export const ganttDateRange = (
 	tasks: Task[],
-	viewMode: ViewMode,
+	viewMode: ViewModeEnum,
 	preStepsCount: number,
 ) => {
 	let newStartDate: Date = tasks[0].start;
@@ -85,25 +85,25 @@ export const ganttDateRange = (
 		}
 	}
 	switch (viewMode) {
-		case ViewMode.Year:
+		case ViewModeEnum.Year:
 			newStartDate = addToDate(newStartDate, -1, "year");
 			newStartDate = startOfDate(newStartDate, "year");
 			newEndDate = addToDate(newEndDate, 1, "year");
 			newEndDate = startOfDate(newEndDate, "year");
 			break;
-		case ViewMode.QuarterYear:
+		case ViewModeEnum.QuarterYear:
 			newStartDate = addToDate(newStartDate, -3, "month");
 			newStartDate = startOfDate(newStartDate, "month");
 			newEndDate = addToDate(newEndDate, 3, "year");
 			newEndDate = startOfDate(newEndDate, "year");
 			break;
-		case ViewMode.Month:
+		case ViewModeEnum.Month:
 			newStartDate = addToDate(newStartDate, -1 * preStepsCount, "month");
 			newStartDate = startOfDate(newStartDate, "month");
 			newEndDate = addToDate(newEndDate, 1, "year");
 			newEndDate = startOfDate(newEndDate, "year");
 			break;
-		case ViewMode.Week:
+		case ViewModeEnum.Week:
 			newStartDate = startOfDate(newStartDate, "day");
 			newStartDate = addToDate(
 				getMonday(newStartDate),
@@ -113,25 +113,25 @@ export const ganttDateRange = (
 			newEndDate = startOfDate(newEndDate, "day");
 			newEndDate = addToDate(newEndDate, 1.5, "month");
 			break;
-		case ViewMode.Day:
+		case ViewModeEnum.Day:
 			newStartDate = startOfDate(newStartDate, "day");
 			newStartDate = addToDate(newStartDate, -1 * preStepsCount, "day");
 			newEndDate = startOfDate(newEndDate, "day");
 			newEndDate = addToDate(newEndDate, 19, "day");
 			break;
-		case ViewMode.QuarterDay:
+		case ViewModeEnum.QuarterDay:
 			newStartDate = startOfDate(newStartDate, "day");
 			newStartDate = addToDate(newStartDate, -1 * preStepsCount, "day");
 			newEndDate = startOfDate(newEndDate, "day");
 			newEndDate = addToDate(newEndDate, 66, "hour"); // 24(1 day)*3 - 6
 			break;
-		case ViewMode.HalfDay:
+		case ViewModeEnum.HalfDay:
 			newStartDate = startOfDate(newStartDate, "day");
 			newStartDate = addToDate(newStartDate, -1 * preStepsCount, "day");
 			newEndDate = startOfDate(newEndDate, "day");
 			newEndDate = addToDate(newEndDate, 108, "hour"); // 24(1 day)*5 - 12
 			break;
-		case ViewMode.Hour:
+		case ViewModeEnum.Hour:
 			newStartDate = startOfDate(newStartDate, "hour");
 			newStartDate = addToDate(newStartDate, -1 * preStepsCount, "hour");
 			newEndDate = startOfDate(newEndDate, "day");
@@ -144,34 +144,34 @@ export const ganttDateRange = (
 export const seedDates = (
 	startDate: Date,
 	endDate: Date,
-	viewMode: ViewMode,
+	viewMode: ViewModeEnum,
 ) => {
 	let currentDate: Date = new Date(startDate);
 	const dates: Date[] = [currentDate];
 	while (currentDate < endDate) {
 		switch (viewMode) {
-			case ViewMode.Year:
+			case ViewModeEnum.Year:
 				currentDate = addToDate(currentDate, 1, "year");
 				break;
-			case ViewMode.QuarterYear:
+			case ViewModeEnum.QuarterYear:
 				currentDate = addToDate(currentDate, 3, "month");
 				break;
-			case ViewMode.Month:
+			case ViewModeEnum.Month:
 				currentDate = addToDate(currentDate, 1, "month");
 				break;
-			case ViewMode.Week:
+			case ViewModeEnum.Week:
 				currentDate = addToDate(currentDate, 7, "day");
 				break;
-			case ViewMode.Day:
+			case ViewModeEnum.Day:
 				currentDate = addToDate(currentDate, 1, "day");
 				break;
-			case ViewMode.HalfDay:
+			case ViewModeEnum.HalfDay:
 				currentDate = addToDate(currentDate, 12, "hour");
 				break;
-			case ViewMode.QuarterDay:
+			case ViewModeEnum.QuarterDay:
 				currentDate = addToDate(currentDate, 6, "hour");
 				break;
-			case ViewMode.Hour:
+			case ViewModeEnum.Hour:
 				currentDate = addToDate(currentDate, 1, "hour");
 				break;
 		}
@@ -231,9 +231,8 @@ export const getWeekNumberISO8601 = (date: Date) => {
 
 	if (weekNumber.length === 1) {
 		return `0${weekNumber}`;
-	} else {
-		return weekNumber;
 	}
+	return weekNumber;
 };
 
 export const getDaysInMonth = (month: number, year: number) => {

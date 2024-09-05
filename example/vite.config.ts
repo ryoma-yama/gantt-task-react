@@ -9,7 +9,6 @@ export default defineConfig({
 	test: {
 		globals: true,
 		environment: "happy-dom",
-		setupFiles: "./example/src/setUpTests.ts",
 	},
 	base: "/gantt-task-react/",
 });
