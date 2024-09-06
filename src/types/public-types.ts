@@ -97,7 +97,8 @@ export interface DisplayOption {
 	 */
 	locale?: string;
 	rtl?: boolean;
-	showHeaderOnlyIfNoTasks?: boolean;
+	showDayOfWeek?: boolean;
+	showFromTo?: boolean;
 }
 
 export interface StylingOption {

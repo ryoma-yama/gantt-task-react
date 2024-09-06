@@ -46,6 +46,8 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 	milestoneBackgroundColor = "#f1c453",
 	milestoneBackgroundSelectedColor = "#f29e4c",
 	rtl = false,
+	showDayOfWeek = false,
+	showFromTo = false,
 	handleWidth = 8,
 	timeStep = 300000,
 	arrowColor = "grey",
@@ -446,6 +448,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 		fontFamily,
 		fontSize,
 		rtl,
+		showDayOfWeek,
 	};
 	const barProps: TaskGanttContentProps = {
 		tasks: barTasks,
@@ -489,6 +492,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 		onExpanderClick: handleExpanderClick,
 		TaskListHeader,
 		TaskListTable,
+		showFromTo,
 	};
 
 	return (

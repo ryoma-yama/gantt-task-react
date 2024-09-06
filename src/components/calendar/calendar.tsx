@@ -20,7 +20,7 @@ export type CalendarProps = {
 	columnWidth: number;
 	fontFamily: string;
 	fontSize: string;
-	showDayOfWeek?: boolean;
+	showDayOfWeek: boolean;
 };
 
 export const Calendar: React.FC<CalendarProps> = ({
@@ -32,7 +32,7 @@ export const Calendar: React.FC<CalendarProps> = ({
 	columnWidth,
 	fontFamily,
 	fontSize,
-	showDayOfWeek = false,
+	showDayOfWeek,
 }) => {
 	const calculateXText = (
 		rtl: boolean,

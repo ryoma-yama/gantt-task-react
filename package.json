@@ -1,12 +1,18 @@
 {
-	"name": "gantt-task-react",
-	"version": "0.3.9",
+	"name": "neo-gantt-task-react",
+	"version": "0.9.0",
 	"type": "module",
-	"description": "Interactive Gantt Chart for React with TypeScript.",
-	"author": "MaTeMaTuK <maksym.vikarii@gmail.com>",
-	"homepage": "https://github.com/MaTeMaTuK/gantt-task-react",
+	"description": "Interactive Gantt Chart for React with TypeScript. Forked and enhanced version.",
+	"author": "ryoma-yama (https://github.com/ryoma-yama)",
+	"homepage": "https://github.com/ryoma-yama/neo-gantt-task-react#readme",
+	"bugs": {
+		"url": "https://github.com/ryoma-yama/neo-gantt-task-react/issues"
+	},
 	"license": "MIT",
-	"repository": "MaTeMaTuK/gantt-task-react",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ryoma-yama/neo-gantt-task-react.git"
+	},
 	"main": "dist/index.js",
 	"module": "dist/index.modern.js",
 	"source": "src/index.tsx",
@@ -52,8 +58,6 @@
 		"vite": "^5.4.2",
 		"vitest": "^2.0.5"
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }

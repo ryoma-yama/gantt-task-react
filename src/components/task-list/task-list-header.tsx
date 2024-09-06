@@ -6,7 +6,7 @@ export interface TaskListHeaderProps {
 	rowWidth: string;
 	fontFamily: string;
 	fontSize: string;
-	showFromTo?: boolean;
+	showFromTo: boolean;
 }
 
 export const TaskListHeaderDefault: React.FC<TaskListHeaderProps> = ({
@@ -14,7 +14,7 @@ export const TaskListHeaderDefault: React.FC<TaskListHeaderProps> = ({
 	fontFamily,
 	fontSize,
 	rowWidth,
-	showFromTo = false,
+	showFromTo,
 }) => {
 	const headerItemStyle = {
 		minWidth: rowWidth,

@@ -1,10 +1,12 @@
-# gantt-task-react
+# neo-gantt-task-react
+
+This project is a fork of [gantt-task-react](https://github.com/MaTeMaTuK/gantt-task-react), originally developed by MaTeMaTuK.
 
 ## Interactive Gantt Chart for React with TypeScript.
 
 ![example](https://user-images.githubusercontent.com/26743903/88215863-f35d5f00-cc64-11ea-81db-e829e6e9b5c8.png)
 
-## [Live Demo](https://ryoma-yama.github.io/gantt-task-react/)
+## [Live Demo](https://ryoma-yama.github.io/neo-gantt-task-react/)
 
 ## Install
 
@@ -53,7 +55,7 @@ You may handle actions
 ```
 cd ./example
 npm install
-npm start
+npm run dev
 ```
 
 ## Gantt Configuration
@@ -91,6 +93,8 @@ npm start
 | preStepsCount  | number  | Specifies empty space before the fist task                                                                  |
 | locale         | string  | Specifies the month name language. Able formats: ISO 639-2, Java Locale.                                    |
 | rtl            | boolean | Sets rtl mode.                                                                                              |
+| showDayOfWeek  | boolean | Default `false`                                                                                             |
+| showFromTo     | boolean | Default `false`                                                                                             |
 
 ### StylingOption
 
