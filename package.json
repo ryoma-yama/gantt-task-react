@@ -1,10 +1,11 @@
 {
 	"name": "neo-gantt-task-react",
-	"version": "0.9.1",
+	"version": "0.9.2",
 	"type": "module",
 	"exports": {
 		".": {
-			"import": "./dist/index.modern.js"
+			"import": "./dist/index.modern.js",
+			"styles": "./dist/index.css"
 		}
 	},
 	"types": "dist/index.d.ts",
