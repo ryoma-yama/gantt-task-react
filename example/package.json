@@ -1,7 +1,8 @@
 {
 	"name": "neo-gantt-task-react-example",
-	"homepage": ".",
 	"version": "1.0.0",
+	"type": "module",
+	"homepage": ".",
 	"private": true,
 	"scripts": {
 		"dev": "vite",

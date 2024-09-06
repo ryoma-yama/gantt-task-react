@@ -11,14 +11,14 @@ This project is a fork of [gantt-task-react](https://github.com/MaTeMaTuK/gantt-
 ## Install
 
 ```
-npm install gantt-task-react
+npm install neo-gantt-task-react
 ```
 
 ## How to use it
 
 ```javascript
-import { Gantt, Task, EventOption, StylingOption, ViewMode, DisplayOption } from 'gantt-task-react';
-import "gantt-task-react/dist/index.css";
+import { Gantt, Task, EventOption, StylingOption, ViewMode, DisplayOption } from 'neo-gantt-task-react';
+import "neo-gantt-task-react/dist/index.css";
 
 let tasks: Task[] = [
     {
@@ -121,7 +121,7 @@ npm run dev
 | TaskListHeader             |        | Specifies the task list Header view                                                            |
 | TaskListTable              |        | Specifies the task list Table view                                                             |
 
-- TooltipContent: [`React.FC<{ task: Task; fontSize: string; fontFamily: string; }>;`](https://github.com/MaTeMaTuK/gantt-task-react/blob/main/src/components/other/tooltip.tsx#L56)
+- TooltipContent: [`React.FC<{ task: Task; fontSize: string; fontFamily: string; }>;`]
 - TaskListHeader: `React.FC<{ headerHeight: number; rowWidth: string; fontFamily: string; fontSize: string;}>;`
 - TaskListTable: `React.FC<{ rowHeight: number; rowWidth: string; fontFamily: string; fontSize: string; locale: string; tasks: Task[]; selectedTaskId: string; setSelectedTask: (taskId: string) => void; }>;`
 
