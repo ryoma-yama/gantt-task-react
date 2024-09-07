@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import type { BarTask } from "../../types/bar-task";
 import type { Task } from "../../types/public-types";
 import type { TaskListTableProps } from "./task-list-table";
+import type { TaskListHeaderProps } from "./task-list-header";
 
 export type TaskListProps = {
 	headerHeight: number;
@@ -18,13 +19,9 @@ export type TaskListProps = {
 	selectedTask: BarTask | undefined;
 	setSelectedTask: (task: string) => void;
 	onExpanderClick: (task: Task) => void;
-	TaskListHeader: React.FC<{
-		headerHeight: number;
-		rowWidth: string;
-		fontFamily: string;
-		fontSize: string;
-	}>;
+	TaskListHeader: React.FC<TaskListHeaderProps>;
 	TaskListTable: React.FC<TaskListTableProps>;
+	showFromTo: boolean;
 };
 
 export const TaskList: React.FC<TaskListProps> = ({
@@ -44,6 +41,7 @@ export const TaskList: React.FC<TaskListProps> = ({
 	horizontalContainerClass,
 	TaskListHeader,
 	TaskListTable,
+	showFromTo,
 }) => {
 	const horizontalContainerRef = useRef<HTMLDivElement>(null);
 	useEffect(() => {
@@ -57,6 +55,7 @@ export const TaskList: React.FC<TaskListProps> = ({
 		fontFamily,
 		fontSize,
 		rowWidth,
+		showFromTo,
 	};
 	const selectedTaskId = selectedTask ? selectedTask.id : "";
 	const tableProps = {

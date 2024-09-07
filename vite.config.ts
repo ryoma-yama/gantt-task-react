@@ -1,14 +1,15 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react-swc";
+import { resolve } from "node:path";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
-	plugins: [react()],
 	build: {
 		lib: {
-			entry: "src/index.tsx",
+			entry: resolve(__dirname, "src/index.ts"),
 			name: "NeoGanttTaskReact",
 			formats: ["es"],
-			fileName: "index.modern",
+			fileName: "neo-gantt-task-react",
 		},
 		rollupOptions: {
 			external: ["react", "react-dom"],
@@ -20,6 +21,7 @@ export default defineConfig({
 			},
 		},
 	},
+	plugins: [react(), dts()],
 	test: {
 		globals: true,
 		environment: "happy-dom",
