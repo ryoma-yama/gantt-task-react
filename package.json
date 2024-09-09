@@ -2,16 +2,16 @@
 	"name": "neo-gantt-task-react",
 	"version": "0.9.9",
 	"type": "module",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"module": "./dist/neo-gantt-task-react.js",
 	"exports": {
 		".": {
-			"import": "./dist/neo-gantt-task-react.js"
+			"import": "./dist/neo-gantt-task-react.js",
+			"types": "./dist/index.d.ts"
 		},
 		"./style.css": "./dist/style.css"
 	},
+	"style": "./dist/style.css",
 	"types": "./dist/index.d.ts",
 	"description": "Interactive Gantt Chart for React with TypeScript. Forked and enhanced version.",
 	"author": "ryoma-yama (https://github.com/ryoma-yama)",
