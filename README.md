@@ -1,12 +1,31 @@
 # neo-gantt-task-react
-
-This project is a fork of [gantt-task-react](https://github.com/MaTeMaTuK/gantt-task-react), originally developed by MaTeMaTuK.
+![GitHub package.json version](https://img.shields.io/github/package-json/v/ryoma-yama/neo-gantt-task-react.svg)
+![workflow status](https://github.com/ryoma-yama/neo-gantt-task-react/actions/workflows/publish.yml/badge.svg)
+[![install size](https://packagephobia.com/badge?p=neo-gantt-task-react)](https://packagephobia.com/result?p=neo-gantt-task-react)
+![npm downloads](https://img.shields.io/npm/dw/neo-gantt-task-react)
+![GitHub License](https://img.shields.io/github/license/ryoma-yama/neo-gantt-task-react)
 
 ## Interactive Gantt Chart for React with TypeScript.
 
 ![example](https://user-images.githubusercontent.com/26743903/88215863-f35d5f00-cc64-11ea-81db-e829e6e9b5c8.png)
 
 ## [Live Demo](https://ryoma-yama.github.io/neo-gantt-task-react/)
+
+## Changes
+
+This project is a fork of [gantt-task-react](https://github.com/MaTeMaTuK/gantt-task-react), originally developed by MaTeMaTuK.
+
+### What's New?
+
+- The Gantt chart no longer throws an error when the task list is empty, and by default, it shows a task list and calendar.
+- Weekdays in the calendar are now hidden by default.
+- Task start and end dates are hidden by default.
+
+### For Developers
+
+- Switched the build tool from `create-react-app` to `Vite`.
+- Replaced the linter/formatter with `Biome`.
+- Changed the package manager to `pnpm`.
 
 ## Install
 
