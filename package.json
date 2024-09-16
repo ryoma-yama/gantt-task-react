@@ -1,6 +1,6 @@
 {
 	"name": "neo-gantt-task-react",
-	"version": "0.9.10",
+	"version": "0.10.0",
 	"type": "module",
 	"files": [
 		"dist"
