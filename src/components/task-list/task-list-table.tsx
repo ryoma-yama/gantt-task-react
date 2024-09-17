@@ -101,9 +101,18 @@ export const TaskListTableDefault: React.FC<TaskListTableProps> = ({
 									{expanderSymbol}
 								</div>
 								<div>
-									<a href={task.url} target="_blank" rel="noopener noreferrer">
-										{task.name}
-									</a>
+									{task.url ? (
+										<a
+											className={styles.taskListLink}
+											href={task.url}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											{task.name}
+										</a>
+									) : (
+										<span>{task.name}</span>
+									)}
 								</div>
 							</div>
 						</div>
