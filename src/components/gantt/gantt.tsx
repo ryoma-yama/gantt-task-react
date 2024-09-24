@@ -203,6 +203,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 		rtl,
 		scrollX,
 		onExpanderClick,
+		headerHeight,
 	]);
 
 	useEffect(() => {
@@ -231,7 +232,6 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 		dateSetup.viewMode,
 		viewMode,
 		currentViewDate,
-		setCurrentViewDate,
 	]);
 
 	useEffect(() => {
@@ -279,13 +279,13 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 		if (taskListRef.current) {
 			setTaskListWidth(taskListRef.current.offsetWidth);
 		}
-	}, [taskListRef, listCellWidth]);
+	}, [listCellWidth]);
 
 	useEffect(() => {
 		if (wrapperRef.current) {
 			setSvgContainerWidth(wrapperRef.current.offsetWidth - taskListWidth);
 		}
-	}, [wrapperRef, taskListWidth]);
+	}, [taskListWidth]);
 
 	useEffect(() => {
 		if (barTasks.length === 0) {
@@ -295,7 +295,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 		} else {
 			setSvgContainerHeight(tasks.length * rowHeight + headerHeight);
 		}
-	}, [ganttHeight, tasks, headerHeight, rowHeight]);
+	}, [ganttHeight, tasks, headerHeight, rowHeight, barTasks.length]);
 
 	// scroll events
 	useEffect(() => {
@@ -333,15 +333,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 		return () => {
 			wrapperRef.current?.removeEventListener("wheel", handleWheel);
 		};
-	}, [
-		wrapperRef,
-		scrollY,
-		scrollX,
-		ganttHeight,
-		svgWidth,
-		rtl,
-		ganttFullHeight,
-	]);
+	}, [scrollY, scrollX, ganttHeight, svgWidth, ganttFullHeight]);
 
 	const handleScrollY = (event: SyntheticEvent<HTMLDivElement>) => {
 		if (scrollY !== event.currentTarget.scrollTop && !ignoreScrollEvent) {
