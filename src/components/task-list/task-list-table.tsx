@@ -95,12 +95,13 @@ export const TaskListTableDefault: React.FC<TaskListTableProps> = ({
 											onExpanderClick(task);
 										}
 									}}
-									tabIndex={0}
+									// Commenting out. Since this causes a stacking issue.
+									// tabIndex={0}
 									role="button"
 								>
 									{expanderSymbol}
 								</div>
-								<div>
+								<div className={styles.taskListName}>
 									{task.url ? (
 										<a
 											className={styles.taskListLink}
