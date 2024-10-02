@@ -108,6 +108,8 @@ export const TaskListTableDefault: React.FC<TaskListTableProps> = ({
 											href={task.url}
 											target="_blank"
 											rel="noopener noreferrer"
+											// Negative tabIndex to prevent tab focus. Since this causes a stacking issue.
+											tabIndex={-1}
 										>
 											{task.name}
 										</a>
