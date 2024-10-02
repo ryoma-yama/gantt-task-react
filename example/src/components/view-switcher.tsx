@@ -4,11 +4,15 @@ type ViewSwitcherProps = {
 	isChecked: boolean;
 	onViewListChange: (isChecked: boolean) => void;
 	onViewModeChange: (viewMode: ViewMode) => void;
+	showFromTo: boolean;
+	setShowFromTo: (showFromTo: boolean) => void;
 };
 export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
 	onViewModeChange,
 	onViewListChange,
 	isChecked,
+	showFromTo,
+	setShowFromTo,
 }) => {
 	return (
 		<div className="ViewContainer">
@@ -78,6 +82,17 @@ export const ViewSwitcher: React.FC<ViewSwitcherProps> = ({
 					<span className="Slider" />
 				</label>
 				Show Task List
+			</div>
+			<div className="Switch">
+				<label className="Switch_Toggle">
+					<input
+						type="checkbox"
+						defaultChecked={showFromTo}
+						onClick={() => setShowFromTo(!showFromTo)}
+					/>
+					<span className="Slider" />
+				</label>
+				Show From / To
 			</div>
 		</div>
 	);

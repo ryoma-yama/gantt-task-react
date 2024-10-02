@@ -28,6 +28,7 @@ export function initTasks() {
 			type: "task",
 			project: "ProjectSample",
 			displayOrder: 2,
+			url: "https://github.com/ryoma-yama/neo-gantt-task-react",
 		},
 		{
 			start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 2),

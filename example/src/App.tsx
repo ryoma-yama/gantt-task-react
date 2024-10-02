@@ -67,6 +67,7 @@ const App = () => {
 		setTasks(tasks.map((t) => (t.id === task.id ? task : t)));
 		console.log(`On expander click Id:${task.id}`);
 	};
+	const [showFromTo, setShowFromTo] = useState(false);
 
 	return (
 		<div className="Wrapper">
@@ -74,6 +75,8 @@ const App = () => {
 				onViewModeChange={(viewMode) => setView(viewMode)}
 				onViewListChange={setIsChecked}
 				isChecked={isChecked}
+				showFromTo={showFromTo}
+				setShowFromTo={setShowFromTo}
 			/>
 			<h3>Gantt With Unlimited Height</h3>
 			<Gantt
@@ -88,6 +91,7 @@ const App = () => {
 				onExpanderClick={handleExpanderClick}
 				listCellWidth={isChecked ? "155px" : ""}
 				columnWidth={columnWidth}
+				showFromTo={showFromTo}
 			/>
 			<h3>Gantt With Limited Height</h3>
 			<Gantt
