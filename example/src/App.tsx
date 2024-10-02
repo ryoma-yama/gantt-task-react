@@ -108,7 +108,7 @@ const App = () => {
 				ganttHeight={300}
 				columnWidth={columnWidth}
 			/>
-			<h3>Always Show Header</h3>
+			<h3>No Tasks</h3>
 			<Gantt tasks={[]} />
 		</div>
 	);

@@ -17,9 +17,9 @@ This project is a fork of [gantt-task-react](https://github.com/MaTeMaTuK/gantt-
 
 ### What's New?
 
-- The Gantt chart no longer throws an error when the task list is empty, and by default, it shows a task list and calendar.
+- The Gantt chart no longer throws an error when the task list is empty, and instead, it displays nothing.
 - Weekdays in the calendar are now hidden by default.
-- Task start and end dates are hidden by default.
+- Task from / to dates are hidden by default.
 
 ### For Developers
 

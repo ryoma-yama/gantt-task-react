@@ -487,6 +487,10 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 		showFromTo,
 	};
 
+	if (tasks.length === 0) {
+		return null;
+	}
+
 	return (
 		<div>
 			<div
@@ -505,8 +509,6 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
 					scrollY={scrollY}
 					scrollX={scrollX}
 				/>
-				{/* {tasks.length > 0 && (
-				)} */}
 				{ganttEvent.changedTask && (
 					<Tooltip
 						arrowIndent={arrowIndent}
