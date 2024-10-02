@@ -68,6 +68,7 @@ export const TaskList: React.FC<TaskListProps> = ({
 		selectedTaskId: selectedTaskId,
 		setSelectedTask,
 		onExpanderClick,
+		showFromTo,
 	};
 
 	return (

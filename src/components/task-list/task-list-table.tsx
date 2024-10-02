@@ -34,7 +34,7 @@ export interface TaskListTableProps {
 	 */
 	setSelectedTask: (taskId: string) => void;
 	onExpanderClick: (task: Task) => void;
-	showFromTo?: boolean;
+	showFromTo: boolean;
 }
 
 export const TaskListTableDefault: React.FC<TaskListTableProps> = ({
