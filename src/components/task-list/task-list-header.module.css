@@ -1,25 +1,42 @@
 .ganttTable {
-  display: table;
+  display: flex;
+  flex-direction: column;
   border-bottom: #e6e4e4 1px solid;
   border-top: #e6e4e4 1px solid;
   border-left: #e6e4e4 1px solid;
+  width: 100%;
 }
 
 .ganttTable_Header {
-  display: table-row;
+  display: flex;
+  width: 100%;
   list-style: none;
 }
 
-.ganttTable_HeaderSeparator {
-  border-right: 1px solid rgb(196, 196, 196);
-  opacity: 1;
-  margin-left: -2px;
+.ganttTable_HeaderItem {
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+  position: relative;
 }
 
-.ganttTable_HeaderItem {
-  box-sizing: border-box;
-  display: table-cell;
-  vertical-align: -webkit-baseline-middle;
-  vertical-align: middle;
-  padding-left: 1em;
+.ganttTable_HeaderItem::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60%;
+  background-color: rgb(196, 196, 196);
+}
+
+.ganttTable_HeaderItem:last-child::after {
+  display: none;
+}
+
+.ganttTable_HeaderSeparator {
+  display: none;
 }
