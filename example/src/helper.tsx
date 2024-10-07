@@ -94,6 +94,15 @@ export function initTasks() {
 			isDisabled: true,
 			type: "task",
 		},
+		{
+			start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 20),
+			end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 21),
+			name: "Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit",
+			id: "Task 10",
+			progress: 0,
+			isDisabled: true,
+			type: "task",
+		},
 	];
 	return tasks;
 }
